@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const PORT = (3000 || process.env.PORT)
+const PORT = process.env.port || 3000;
 
 app.set('view engine', 'ejs')
 
@@ -10,5 +10,8 @@ app.get('/', function (req, res) {
         someVar : "hello from node, express, and ejs, nodemon here too.."
     })
 })
+app.listen(PORT, () => {
+    console.log(`Server is running and listening on port ${PORT}`);
+})
 
-app.listen(PORT, console.log(`server running on port: ${ PORT } `))
+
